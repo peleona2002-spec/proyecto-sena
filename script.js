@@ -93,12 +93,12 @@ const productData = {
   },
    'btn-brownie con helado': {
     key:   'btn-brownie con helado',
-    img:   'copa durazno.png.jpg',
-    name:  'copa durazno ⭐',
+    img:   'brownie.png.jpg',
+    name:  'Brownie con Helado 🍨',
     desc:  'brownie al gusto, helado x2, crema chantilly, chocolate, galleta de oreo y salsa de chocolate.',
     price: 15000,
     priceStr: '$15.000 COP',
-    msg:   'Hola! Quisiera pedir una copa durazno 🍦 '
+    msg:   'Hola! Quisiera pedir un brownie con helado 🍦'
   },
    'btn-ensalada-clasica': {
     key:   'btn-ensalada-clasica',
@@ -111,29 +111,30 @@ const productData = {
   },
    'btn-Ensalada de fruta sencilla': {
     key:   'btn-Ensalada de fruta sencilla',
-    img:   'ensalada3.png.jpg',
+    img:   'ensalada2.png.jpg',
     name:  'Ensalada de fruta sencilla 🥗',
-    desc:  'variedad de frutas, queso, crema de leche, decoracion especial, porcion de helado x2, dulce de mora y dos galletas. ¡La más pedida!',
+    desc:  'Frutas de temporada picadas: mango, fresa, kiwi, papaya, uvas y más, con leche condensada, porcion de helado, decoracion, dulce de mora y crema de leche.',
     price: 10000,
     priceStr: '$10.000 COP',
-    msg:   'Hola! Quisiera pedir una ensalada de fruta especial 🥗 '
+    msg:   'Hola! Quisiera pedir una ensalada de fruta sencilla 🥗'
   },
   'btn-ensalada-especial': {
     key:   'btn-ensalada-especial',
     img:   'ensalada3.png.jpg',
-    name:  'Ensalada Arcoiris',
-    desc:  'variedad de frutas, queso, crema de leche, decoracion especial, porcion de helado x2, dulce de mora y dos galletas. ¡La más pedida',
+    name:  'Ensalada Especial Arcoíris',
+    desc:  'variedad de frutas, queso, crema de leche, decoracion especial, porcion de helado x2, dulce de mora y dos galletas. ¡La más pedida!',
     price: 13000,
     priceStr: '$13.000 COP',
-    msg:   'Hola! Quisiera pedir una ensalada especial 🥗 '
+    msg:   'Hola! Quisiera pedir una ensalada especial 🥗'
   },
   'btn-limonada de coco': {
     key:   'btn-limonada de coco',
-    img:   'jugos1.png.jpg',
-    name:  'limonada de coco',
+    img:   'limonada.png.jpg',
+    name:  'Limonada de Coco 🥥',
+    desc:  'Deliciosa limonada cremosa preparada con coco natural.',
     price: 8500,
     priceStr: '$8.500 COP',
-    msg:   'Hola! Quisiera pedir una limonada de coco 🥛'
+    msg:   'Hola! Quisiera pedir una limonada de coco 🥥'
   }
 
 
