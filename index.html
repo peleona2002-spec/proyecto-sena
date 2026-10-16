@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- 
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Heladería y Frutería Arcoíris en Tocaima, Colombia. Disfruta de los mejores helados artesanales, ensaladas de frutas y jugos naturales. ¡Sabor, color y frescura en cada bocado!" />
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
 
   <title>Heladería y Frutería Arcoíris | Tocaima, Colombia</title>
-   <link rel="icon" href="wilbersito.ico" sizes="32x32">
+  <link rel="icon" href="img/logo.ico" sizes="32x32">
 
   <!-- Google Fonts: Poppins (principal) + Pacifico (display/títulos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,8 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Hoja de estilos principal -->
-   
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
@@ -119,32 +118,32 @@
       <div class="hero-image animate-zoom-in delay-2">
         <div class="hero-image-wrapper">
 
-          <!-- Slideshow con fotos reales de heladerías colombianas (Unsplash, licencia libre) -->
+          <!-- Slideshow con fotos reales -->
           <div class="hero-slideshow" id="heroSlideshow" aria-label="Galería de fotos de la heladería">
             <div class="slide active">
               <img
-                src="bebida.jpg"
+                src="img/bebida.jpg"
                 alt="Heladería colorida con variedad de sabores artesanales"
                 loading="eager"
               />
             </div>
             <div class="slide">
               <img
-                src="inicio2.jpeg"
+                src="img/inicio2.jpeg"
                 alt="Vitrina de helados artesanales con colores vibrantes"
                 loading="lazy"
               />
             </div>
             <div class="slide">
               <img
-                src="ensaladas.jpg"
+                src="img/ensaladas.jpg"
                 alt="Frutas tropicales frescas en una frutería colombiana"
                 loading="lazy"
               />
             </div>
             <div class="slide">
               <img
-                src="inicio1.jpeg"
+                src="img/inicio1.jpeg"
                 alt="Ensalada de frutas tropicales con crema"
                 loading="lazy"
               />
@@ -191,6 +190,8 @@
 
   <!-- =============================================
        SECCIÓN PRODUCTOS
+       El contenido del grid se genera dinámicamente desde
+       js/products.js (ver js/main.js → renderProducts()).
   ============================================= -->
   <section class="products-section" id="productos" aria-label="Nuestros productos">
     <div class="container">
@@ -204,429 +205,16 @@
 
       <!-- Filtros de categoría -->
       <div class="category-filters" role="tablist" aria-label="Filtrar productos por categoría">
-        <button class="filter-btn active" data-filter="all"        role="tab" id="filter-all"      aria-selected="true">🌈 Todos</button>
-        <button class="filter-btn"        data-filter="helados"    role="tab" id="filter-helados"  aria-selected="false">🍦 Helados</button>
-        <button class="filter-btn"        data-filter="ensaladas"  role="tab" id="filter-ensaladas" aria-selected="false">🥗 Ensaladas</button>
-        <button class="filter-btn"        data-filter="jugos"      role="tab" id="filter-jugos"    aria-selected="false">🥤 Jugos</button>
-        <button class="filter-btn"        data-filter="comida rapida"      role="tab" id="filter-comida rapida"    aria-selected="false">🍔 comida rapida</button>
+        <button class="filter-btn active" data-filter="all"            role="tab" id="filter-all"           aria-selected="true">🌈 Todos</button>
+        <button class="filter-btn"        data-filter="helados"        role="tab" id="filter-helados"       aria-selected="false">🍦 Helados</button>
+        <button class="filter-btn"        data-filter="ensaladas"      role="tab" id="filter-ensaladas"     aria-selected="false">🥗 Ensaladas</button>
+        <button class="filter-btn"        data-filter="jugos"          role="tab" id="filter-jugos"         aria-selected="false">🥤 Jugos</button>
+        <button class="filter-btn"        data-filter="comida rapida"  role="tab" id="filter-comida-rapida" aria-selected="false">🍔 Comida Rápida</button>
       </div>
 
-      <!-- Grid de productos -->
-      <div class="products-grid" id="productsGrid" aria-live="polite">
+      <!-- Grid de productos (poblado por JavaScript) -->
+      <div class="products-grid" id="productsGrid" aria-live="polite"></div>
 
-        <!-- ---- HELADOS ---- -->
-        <!-- Copa de helado -->
-        <article class="product-card" data-category="helados" aria-label="Copa de helado">
-          <div class="product-image-wrap">
-            <img src="copa-helado.png.jpg" alt="Copa de helado con múltiples sabores" class="copa-helado.png.jpg" loading="lazy" />
-            <span class="product-badge badge-red">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Copa de Helado</h3>
-            <p class="product-desc">Deliciosa copa con 2 bolas de helado de chocolate, crema chantilly, chocolatina, galleta oreo y salsa de chocolate.</p>
-            <div class="product-footer">
-              <span class="product-price">$18.000 COP</span>
-              <button class="btn-add" id="add-copa-helado"
-                data-name="Copa de Helado" data-price="18000" data-img="copa-helado.png.jpg"
-                aria-label="Agregar Copa de Helado al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Cono de helado -->
-        <article class="product-card" data-category="helados" aria-label="Copa de helado mini">
-          <div class="product-image-wrap">
-            <img src="copa-fresas.png.jpg" alt="Copa de helado mini arcoíris" class="copa-fresas.png.jpg" loading="lazy" />
-            <span class="product-badge badge-orange">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Copa de helado mini Arcoíris</h3>
-            <p class="product-desc">porcion de queso, crema de leche, porcion helado, dulce de mora y una galleta. ¡Colorido y delicioso!</p>
-            <div class="product-footer">
-              <span class="product-price">$10.000 COP</span>
-              <button class="btn-add" id="add-copa-helado-mini"
-                data-name="Copa de helado mini" data-price="10000" data-img="copa-fresas.png.jpg"
-                aria-label="Agregar Copa de helado mini al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Paleta -->
-        <article class="product-card" data-category="helados" aria-label="fresas con crema">
-          <div class="product-image-wrap">
-            <img src="fresas1.png.jpg" alt="fresas con crema" class="fresas1.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">fresas con crema</h3>
-            <p class="product-desc">fresas, crema de leche y leche condensada.</p>
-            <div class="product-footer">
-              <span class="product-price">$12.000 COP</span>
-              <button class="btn-add" id="add-fresas-con-crema"
-                data-name="fresas con crema" data-price="12000" data-img="fresas1.png.jpg"
-                aria-label="Agregar fresas con crema al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="fresas con crema y helado">
-          <div class="product-image-wrap">
-            <img src="fresas2.png.jpg" alt="fresas con crema y helado" class="fresas2.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">fresas con crema y helado</h3>
-            <p class="product-desc">fresas, crema de leche, leche condensada y porcion de helado.</p>
-            <div class="product-footer">
-              <span class="product-price">$14.000 COP</span>
-              <button class="btn-add" id="add-fresas con crema y helado"
-                data-name="fresas con crema y helado" data-price="14000" data-img="fresas2.png.jpg"
-                aria-label="Agregar fresas con crema y helado al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="fresas con crema especial">
-          <div class="product-image-wrap">
-            <img src="fresas3.png.jpg" alt="fresas con crema especial" class="fresas3.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">fresas con crema especial</h3>
-            <p class="product-desc">fresas, crema de leche, leche condensada , queso y porcion de helado.</p>
-            <div class="product-footer">
-              <span class="product-price">$16.000 COP</span>
-              <button class="btn-add" id="add-fresas con crema"
-                data-name="fresas con crema especial" data-price="16000" data-img="fresas3.png.jpg"
-                aria-label="Agregar fresas con crema especial al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="banana split">
-          <div class="product-image-wrap">
-            <img src="banana1.png.jpg" alt="banana split" class="banana1.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">banana split</h3>
-            <p class="product-desc">porcion de banano, crema de leche, queso, 2 bolas de helado, crema chantilly, salsa de chocolate y galleta.</p>
-            <div class="product-footer">
-              <span class="product-price">$15.000 COP</span>
-              <button class="btn-add" id="add-banana split"
-                data-name="banana split" data-price="15000" data-img="banana1.png.jpg"
-                aria-label="Agregar banana split al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="banana split super">
-          <div class="product-image-wrap">
-            <img src="banana2.png.jpg" alt="banana split super" class="banana2.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">banana split super</h3>
-            <p class="product-desc">porcion de banano, crema de leche, queso, 4 bolas de helado, durazno, fresa, salsa de chocolate y galleta.</p>
-            <div class="product-footer">
-              <span class="product-price">$20.000 COP</span>
-              <button class="btn-add" id="add-banana split super"
-                data-name="banana split super" data-price="20000" data-img="banana2.png.jpg"
-                aria-label="Agregar banana split super al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="copa de helado de durazno">
-          <div class="product-image-wrap">
-            <img src="copa durazno.png.jpg" alt="copa de helado de durazno" class="copa durazno.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">copa de helado de durazno</h3>
-            <p class="product-desc">porcion de helado de durazno, crema de leche, porcion de queso, helado y salsa de mora.</p>
-            <div class="product-footer">
-              <span class="product-price">$15.000 COP</span>
-              <button class="btn-add" id="add-copa de helado de durazno"
-                data-name="copa de helado de durazno" data-price="15000" data-img="copa durazno.png.jpg"
-                aria-label="Agregar copa de helado de durazno al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="helados" aria-label="brownie con helado">
-          <div class="product-image-wrap">
-            <img src="brownie.png.jpg" alt="brownie con helado" class="brownie.png.jpg" loading="lazy" />
-            <span class="product-badge badge-purple">🍦 Helados</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">brownie con helado</h3>
-            <p class="product-desc">brownie al gusto, helado x2, crema chantilly, chocolate, galleta de oreo y salsa de chocolate.</p>
-            <div class="product-footer">
-              <span class="product-price">$15.000 COP</span>
-              <button class="btn-add" id="add-brownie con helado"
-                data-name="brownie con helado" data-price="15000" data-img="brownie.png.jpg"
-                aria-label="Agregar brownie con helado al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- ---- ENSALADAS ---- -->
-        <!-- Ensalada de frutas -->
-        <article class="product-card" data-category="ensaladas" aria-label="Ensalada de frutas">
-          <div class="product-image-wrap">
-            <img src="ensalada1.png.jpg" alt="Ensalada de frutas tropicales frescas" class="ensalada1.png.jpg" loading="lazy" />
-            <span class="product-badge badge-green">🥗 Ensaladas</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Ensalada Clásica</h3>
-            <p class="product-desc">Frutas de temporada picadas: mango, fresa, kiwi, papaya, uvas y más, con leche condensada, porcion de helado y crema de leche.</p>
-            <div class="product-footer">
-              <span class="product-price">$8.000 COP</span>
-              <button class="btn-add" id="add-ensalada-clasica"
-                data-name="Ensalada Clásica" data-price="8000" data-img="ensalada1.png.jpg"
-                aria-label="Agregar Ensalada Clásica al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-         <article class="product-card" data-category="ensaladas" aria-label="Ensalada de fruta sencilla">
-          <div class="product-image-wrap">
-            <img src="ensalada2.png.jpg" alt="Ensalada de fruta sencilla" class="ensalada2.png.jpg" loading="lazy" />
-            <span class="product-badge badge-green">🥗 Ensaladas</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Ensalada de fruta sencilla</h3>
-            <p class="product-desc">Frutas de temporada picadas: mango, fresa, kiwi, papaya, uvas y más, con leche condensada, porcion de helado, decoracion, dulce de mora y crema de leche.</p>
-            <div class="product-footer">
-              <span class="product-price">$10.000 COP</span>
-              <button class="btn-add" id="add-Ensalada de fruta sencilla"
-                data-name="Ensalada de fruta sencilla" data-price="10000" data-img="ensalada2.png.jpg"
-                aria-label="Agregar Ensalada de fruta sencilla al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Ensalada especial -->
-        <article class="product-card featured" data-category="ensaladas" aria-label="Ensalada especial arcoíris">
-          <div class="product-image-wrap">
-            <img src="ensalada3.png.jpg" alt="Ensalada especial Arcoíris con helado" class="ensalada3.png.jpg" loading="lazy" />
-            <span class="product-badge badge-yellow">⭐ Especial</span>
-            <span class="product-popular">🔥 Popular</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Ensalada especial</h3>
-            <p class="product-desc">variedad de frutas, queso, crema de leche, decoracion especial, porcion de helado x2, dulce de mora y dos galletas. ¡La más pedida!</p>
-            <div class="product-footer">
-              <span class="product-price">$13.000 COP</span>
-              <button class="btn-add" id="add-ensalada-especial"
-                data-name="Ensalada Arcoíris" data-price="13000" data-img="ensalada3.png.jpg"
-                aria-label="Agregar Ensalada Arcoíris al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-
-        <!-- ---- JUGOS ---- -->
-        <!-- Jugos naturales -->
-        <article class="product-card" data-category="jugos" aria-label="Jugo natural">
-          <div class="product-image-wrap">
-            <img src="jugos1.png.jpg" alt="Jugos naturales de frutas tropicales" class="product-img" loading="lazy" />
-            <span class="product-badge badge-blue">🥤 Jugos</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Jugo Natural</h3>
-            <p class="product-desc">Jugos recién preparados en agua o leche: lulo, maracuyá, mango, mora, naranja, mandarina y más.</p>
-            <div class="product-footer">
-              <span class="product-price">$7.000 COP</span>
-              <button class="btn-add" id="add-jugo-natural"
-                data-name="Jugo Natural" data-price="7000" data-img="jugos1.png.jpg"
-                aria-label="Agregar Jugo Natural al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Batido de frutas -->
-        <article class="product-card" data-category="jugos" aria-label="limonada de coco">
-          <div class="product-image-wrap">
-            <img src="limonada.png.jpg" alt="limonada de coco" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🥤 Jugos</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">limonada de coco</h3>
-            <p class="product-desc"></p>
-            <div class="product-footer">
-              <span class="product-price">$8.500 COP</span>
-              <button class="btn-add" id="add-limonada de coco"
-                data-name="limonada de coco" data-price="8500" data-img="limonada.png.jpg"
-                aria-label="Agregar limonada de coco al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="jugos" aria-label="malteada">
-          <div class="product-image-wrap">
-            <img src="malteada.png.jpg" alt="malteada" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🥤 Jugos</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Malteada</h3>
-            <p class="product-desc">vainilla, chocolate, fresa, arequipe, oreo, brownie</p>
-            <div class="product-footer">
-              <span class="product-price">$15.000 COP</span>
-              <button class="btn-add" id="add-malteada"
-                data-name="malteada" data-price="15000" data-img="malteada.png.jpg"
-                aria-label="Agregar malteada al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="jugos" aria-label="michelada">
-          <div class="product-image-wrap">
-            <img src="michelada.png.jpg" alt="michelada" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🥤 Jugos</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">michelada</h3>
-            <p class="product-desc"></p>
-            <div class="product-footer">
-              <span class="product-price">$10.000 COP</span>
-              <button class="btn-add" id="add-michelada"
-                data-name="michelada" data-price="10000" data-img="michelada.png.jpg"
-                aria-label="Agregar michelada al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-          <article class="product-card" data-category="comida rapida" aria-label="hamburguesa sencilla">
-          <div class="product-image-wrap">
-            <img src="hamburguesa1.png.jpg" alt="hamburguesa sencilla" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🍔 comida rapida</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">hamburguesa sencilla</h3>
-            <p class="product-desc">carne artesanal, queso, cebolla caramelizada, lechuga, pan dorado en mantequilla, papa cabello de angel.</p>
-            <div class="product-footer">
-              <span class="product-price">$12.000 COP</span>
-              <button class="btn-add" id="add-hamburguesa sencilla"
-                data-name="hamburguesa sencilla" data-price="12000" data-img="hamburguesa1.png.jpg"
-                aria-label="Agregar hamburguesa sencilla al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-         <article class="product-card" data-category="comida rapida" aria-label="hamburguesa especial">
-          <div class="product-image-wrap">
-            <img src="hamburguesa2.png.jpg" alt="hamburguesa especial" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🍔 comida rapida</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">hamburguesa especial</h3>
-            <p class="product-desc">carne artesanal, queso, jamon, huevo frito, cebolla caramelizada, lechuga, pan dorado en mantequilla, papa cabello de angel.</p>
-            <div class="product-footer">
-              <span class="product-price">$15.000 COP</span>
-              <button class="btn-add" id="add-hamburguesa especial"
-                data-name="hamburguesa especial" data-price="15000" data-img="hamburguesa2.png.jpg"
-                aria-label="Agregar hamburguesa especial al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-         <article class="product-card" data-category="comida rapida" aria-label="perro sencillo">
-          <div class="product-image-wrap">
-            <img src="perro.png.jpg" alt="perro sencillo" class="product-img" loading="lazy" />
-            <span class="product-badge badge-pink">🍔 comida rapida</span>
-            <div class="product-overlay">
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">perro sencillo</h3>
-            <p class="product-desc">salchicha, queso, papa cabello de angel.</p>
-            <div class="product-footer">
-              <span class="product-price">$12.000 COP</span>
-              <button class="btn-add" id="add-perro sencillo"
-                data-name="perro sencillo" data-price="12000" data-img="perro.png.jpg"
-                aria-label="Agregar perro sencillo al carrito">
-                <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar
-              </button>
-            </div>
-          </div>
-        </article>
-
-
-      </div><!-- /products-grid -->
     </div><!-- /container -->
   </section>
 
@@ -810,10 +398,10 @@
           <div class="social-contact">
             <p>Síguenos en redes sociales:</p>
             <div class="social-icons">
-              <a href="https://www.facebook.com/share/1DfzRHi6oQ/" class="social-icon icon-facebook" id="social-facebook" aria-label="https://www.facebook.com/share/1DfzRHi6oQ/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/share/1DfzRHi6oQ/" class="social-icon icon-facebook" id="social-facebook" aria-label="Facebook de Heladería Arcoíris" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
               </a>
-              <a href="https://wa.me/573134292831" class="social-icon icon-whatsapp" id="social-whatsapp" aria-label="3134292831" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/573134292831" class="social-icon icon-whatsapp" id="social-whatsapp" aria-label="WhatsApp 3134292831" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-whatsapp" aria-hidden="true"></i>
               </a>
             </div>
@@ -859,7 +447,7 @@
         <div class="team-card">
           <div class="team-photo-wrap">
             <div class="team-photo-circle">
-              <img src="astrit.jpeg" alt="astrit.jpeg" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" /> 
+              <img src="img/astrit.jpeg" alt="Integrante 1" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" />
             </div>
             <div class="team-badge">🌟</div>
           </div>
@@ -871,7 +459,7 @@
         <div class="team-card">
           <div class="team-photo-wrap">
             <div class="team-photo-circle">
-              <img src="Dani.jpeg" alt="Dani.jpeg" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" />
+              <img src="img/Dani.jpeg" alt="Integrante 2" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" />
             </div>
             <div class="team-badge">💻</div>
           </div>
@@ -912,7 +500,7 @@
           </p>
           <!-- Redes sociales en footer (solo Facebook y WhatsApp) -->
           <div class="footer-social">
-            <a href="https://www.facebook.com/share/1DfzRHi6oQhttps://www.facebook.com/share/1DfzRHi6oQ/" id="https://www.facebook.com/share/1DfzRHi6oQ/" class="https://www.facebook.com/share/1DfzRHi6oQ/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/share/1DfzRHi6oQ/" id="footer-facebook" class="footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://wa.me/573134292831" id="footer-whatsapp" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -933,10 +521,9 @@
           <h4 class="footer-heading">Productos</h4>
           <ul class="footer-links">
             <li><a href="#productos" id="footer-prod-helados">🍦 Helados Artesanales</a></li>
-            <li><a href="#productos" id="footer-prod-paletas">🍡 Paletas Naturales</a></li>
             <li><a href="#productos" id="footer-prod-ensaladas">🥗 Ensaladas de Frutas</a></li>
             <li><a href="#productos" id="footer-prod-jugos">🥤 Jugos Naturales</a></li>
-            <li><a href="#productos" id="footer-prod-batidos">🥛 Batidos Tropicales</a></li>
+            <li><a href="#productos" id="footer-prod-comida">🍔 Comida Rápida</a></li>
           </ul>
         </div>
 
@@ -967,6 +554,7 @@
         <p>
           © <span id="currentYear"></span> Heladería y Frutería Arcoíris · Tocaima, Colombia 🇨🇴
           &nbsp;|&nbsp; Hecho con 🌈 y mucho amor
+          &nbsp;|&nbsp; <a href="admin.html" id="footer-admin-link" style="color:inherit; opacity:.6;">Panel Admin</a>
         </p>
       </div>
 
@@ -1063,7 +651,8 @@
     </div>
   </aside>
 
-  <!-- Script principal -->
-  <script src="script.js"></script>
+  <!-- Scripts: products.js define el catálogo, main.js la lógica del sitio -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
